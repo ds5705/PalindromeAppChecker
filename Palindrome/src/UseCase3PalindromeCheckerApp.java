@@ -9,18 +9,21 @@ public class UseCase3PalindromeCheckerApp {
         System.out.print("Enter a string: ");
         String input = sc.nextLine();
 
+        // remove spaces and convert to lowercase
+        input = input.trim().toLowerCase();
+
         String reversed = "";
 
-
+        // reverse the string
         for (int i = input.length() - 1; i >= 0; i--) {
             reversed = reversed + input.charAt(i);
         }
 
-
+        // compare strings
         if (input.equals(reversed)) {
-            System.out.println("The string is a Palindrome.");
+            System.out.println("Palindrome");
         } else {
-            System.out.println("The string is NOT a Palindrome.");
+            System.out.println("Not a Palindrome");
         }
 
         sc.close();
