@@ -1,7 +1,6 @@
-import java.util.Stack;
-import java.util.Scanner;
+import java.util.*;
 
-public class UseCase5PalindromeCheckerApp {
+public class UseCase6PalindromeCheckerApp {
 
     public static void main(String[] args) {
 
@@ -10,16 +9,18 @@ public class UseCase5PalindromeCheckerApp {
         System.out.print("Enter a string: ");
         String input = sc.nextLine().trim().toLowerCase();
 
+        Queue<Character> queue = new LinkedList<>();
         Stack<Character> stack = new Stack<>();
 
         for (char c : input.toCharArray()) {
+            queue.add(c);
             stack.push(c);
         }
 
         boolean isPalindrome = true;
 
-        for (char c : input.toCharArray()) {
-            if (c != stack.pop()) {
+        while (!queue.isEmpty()) {
+            if (!queue.remove().equals(stack.pop())) {
                 isPalindrome = false;
                 break;
             }
